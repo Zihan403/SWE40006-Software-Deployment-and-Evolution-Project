@@ -1,2 +1,2 @@
 # SWE40006-Software-Deployment-and-Evolution-Project
-# This is the Dev branch where developers will merge their feature branches after completing each feature
+### This is the main branch which will be hosted for the users, after completing a version the developers will merge the dev branch to this branch. Automated scripts will make sure that if the new version passes all the tests then it will be merged with main and be deployed to the cloud
