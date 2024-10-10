@@ -1,0 +1,139 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 1.6;
+}
+
+
+header {
+    background-color: #006ece; 
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+
+.container {
+    width: 350px;
+    height: auto; 
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+
+.search-bar {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;  
+    width: 100%;
+}
+
+select, input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+select:focus, input[type="text"]:focus {
+    border-color: #006ece; 
+    outline: none;
+}
+
+
+button {
+    margin-top: 15px;  
+    padding: 12px 20px;
+    background-color: #006ece; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; 
+}
+
+button:hover {
+    background-color: #00408a; 
+}
+
+
+.weather-info {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #afe4ff;  
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.weather-info h2 {
+    font-size: 1.5em;
+    color: #006ece;
+    margin-bottom: 10px;
+}
+
+.weather-info p {
+    margin: 10px 0;
+}
+
+.temp {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.footer {
+    background-color: #006ece; 
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    
+}
+
+.footer p {
+    margin: 0;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        height: auto;  
+    }
+
+    .search-bar {
+        gap: 8px;  
+    }
+
+    button {
+        padding: 12px 18px;
+    }
+}

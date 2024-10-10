@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="index.css"> 
+</head>
+<body>
+
+    <header>
+        <h1>Weather App</h1>
+    </header>
+
+    <div class="container">
+        
+        <div class="search-bar">
+            <select id="country-select" onchange="populateCities()">
+                <option value="">Select a country</option>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <option value="Australia">Australia</option>
+                
+            </select>
+
+            <select id="city-select">
+                <option value="">Select a city</option>
+            </select>
+        </div>
+
+        <button onclick="getWeather()">Get Weather</button>
+
+        
+        <div class="weather-info" id="weather-info" style="display: none;">
+            <h2 id="city-name"></h2>
+            <p id="weather-description"></p>
+            <p class="temp" id="temperature"></p>
+            <p id="humidity"></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Weather App. All rights reserved.</p>
+    </div>
+
+    <script>
+        
+        const citiesByCountry = {
+            USA: ["New York", "Los Angeles", "Chicago", "Houston", "Miami"],
+            Canada: ["Toronto", "Vancouver", "Montreal", "Ottawa", "Calgary"],
+            Australia: ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide"]
+            
+        };
+
+        
+        function populateCities() {
+            const country = document.getElementById('country-select').value;
+            const citySelect = document.getElementById('city-select');
+
+            
+            citySelect.innerHTML = '<option value="">Select a city</option>';
+
+            if (citiesByCountry[country]) {
+                citiesByCountry[country].forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+        }
+
+        async function getWeather() {
+            const city = document.getElementById('city-select').value;
+            if (!city) {
+                alert("Please select a city");
+                return;
+            }
+
+            const apiKey = 'a5946bdd35c94a3a9b1105659240810'; // Replace with your OpenWeather API key
+            const apiUrl = `https://api.weatherapi.com/v1/current.json?q=${city}&key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (response.ok) {
+                    
+                    document.getElementById('city-name').textContent = `City: ${data.location.name}`;
+                    document.getElementById('weather-description').textContent = `Description: ${data.current.condition.text}`;
+                    document.getElementById('temperature').textContent = `Temperature: ${data.current.temp_c}°C`;
+                    document.getElementById('humidity').textContent = `Humidity: ${data.current.humidity}%`;
+                    document.getElementById('weather-info').style.display = 'block';
+                } else {
+                    alert(`Error: ${data.message}`);
+                }
+            } catch (error) {
+                alert('Unable to fetch weather data.');
+            }
+        }
+    </script>
+
+</body>
+</html>
