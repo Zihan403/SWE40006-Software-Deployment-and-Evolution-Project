@@ -1,37 +1,39 @@
 const axios = require("axios");
 const CurrentWeather = require("../models/currentweather.model");  // Import the Weather model
 
-// IP-based location API endpoint
-const IP_API_URL = 'http://ip-api.com/json/';
-
-// Function to fetch weather data using latitude and longitude or IP-based geolocation if lat/lon is null
+// Fetch weather by latitude and longitude or by IP
 const fetchWeatherData = async (lat, lon, ipAddress = null) => {
   const apiKey = process.env.WEATHER_API_KEY;
 
   try {
-    // If lat and lon are null or empty, use IP-based geolocation
-    if (!lat || !lon) {
-      // Use IP geolocation to get lat/lon
-      const ipResponse = await axios.get(`${IP_API_URL}${ipAddress || ''}`);
-      const ipData = ipResponse.data;
-      lat = ipData.lat;
-      lon = ipData.lon;
-      console.log(`Using IP-based location: ${ipData.city}, ${ipData.country}`);
+    let query = '';
+
+    if (lat && lon) {
+      // Use lat/lon if available
+      query = `${lat},${lon}`;
+    } else if (ipAddress) {
+      // If lat/lon not provided, fallback to using the IP address
+      query = ipAddress;
+    } else {
+      throw new Error("Either lat/lon or IP address must be provided");
     }
 
-    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lon}`;
+    // Use the same API URL for lat/lon or IP
+    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}`;
+
     const response = await axios.get(apiUrl);
     const data = response.data;
+    console.log(data);
 
     // Return an instance of the CurrentWeather model
     return new CurrentWeather(
-      data.location.tz_id.split("/")[1],  // City or location name
-      data.location.country,              // Country name
+      data.location.tz_id.split("/")[1],  // Location name (e.g., city)
+      data.location.country,              // Country
       data.current.temp_c,                // Temperature in Celsius
       data.current.is_day === 1 ? "Day" : "Night",  // Day or Night
-      data.current.condition.text,        // Weather condition
+      data.current.condition.text,        // Weather condition (e.g., "Sunny")
       data.current.wind_kph,              // Wind speed in kph
-      data.current.humidity,              // Humidity percentage
+      data.current.humidity,              // Humidity
       data.current.uv                     // UV index
     );
   } catch (error) {
@@ -41,7 +43,7 @@ const fetchWeatherData = async (lat, lon, ipAddress = null) => {
   }
 };
 
-// Function to fetch weather data for a specific city
+// Fetch weather by city name
 const fetchWeatherDataForCity = async (city) => {
   const apiKey = process.env.WEATHER_API_KEY;
   const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
