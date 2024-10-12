@@ -2,7 +2,7 @@ const axios = require("axios");
 const CurrentWeather = require("../models/currentweather.model");  // Import the Weather model
 
 // Fetch weather by latitude and longitude or by IP
-const fetchWeatherData = async (lat, lon, ipAddress = null) => {
+const fetchWeatherData = async (lat, lon, ipAddress) => {
   const apiKey = process.env.WEATHER_API_KEY;
 
   try {
