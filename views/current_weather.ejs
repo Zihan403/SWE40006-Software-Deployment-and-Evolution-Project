@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Current Weather</title>
+    <link href="/styles/style.css" rel="stylesheet" />
+  </head>
+  <body
+    class="min-h-screen flex flex-col items-center justify-center bg-blue-200"
+  >
+    <div
+      id="weather-container"
+      class="flex flex-col items-center justify-center bg-white/20 backdrop-blur-md p-8 rounded-lg shadow-lg text-center w-full max-w-lg border border-white/30"
+    >
+      <h1 class="text-4xl font-bold mb-4 tracking-wide" id="location">
+        Loading...
+      </h1>
+
+      <div id="live-timer" class="text-xl font-semibold mb-4">
+        Loading time...
+      </div>
+
+      <div class="flex items-center justify-center space-x-4">
+        <img
+          id="weather-icon"
+          src=""
+          alt="Weather Icon"
+          class="w-20 h-20 hidden"
+        />
+        <p id="condition" class="text-2xl font-semibold">--</p>
+      </div>
+
+      <p id="temperature" class="text-6xl font-extrabold mt-6 mb-4">--Â°C</p>
+
+      <div class="border-t border-white/20 my-6"></div>
+
+      <div class="flex justify-between text-lg w-full">
+        <div class="flex items-center space-x-2">
+          <img src="/images/wind-solid.svg" alt="Wind Icon" class="w-8 h-8" />
+          <p>Wind: <span id="wind" class="font-semibold">--</span> kph</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <img
+            src="/images/water-solid.svg"
+            alt="Humidity Icon"
+            class="w-8 h-8"
+          />
+          <p>Humidity: <span id="humidity" class="font-semibold">--</span>%</p>
+        </div>
+      </div>
+
+      <p class="text-lg mt-6">
+        UV Index: <span id="uv" class="font-semibold">--</span>
+      </p>
+
+      <div class="forecast-btn">
+        <a href="#">View Weather Forecasts</a>
+      </div>
+
+      <p class="mt-8 text-sm font-light text-white/80">
+        Weather data powered by
+        <a href="https://www.weatherapi.com/" class="underline">WeatherAPI</a>
+      </p>
+    </div>
+    <script type="text/javascript" src="/scripts/script.js"></script>
+  </body>
+</html>
