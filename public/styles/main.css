@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.bg-day {
+  background: linear-gradient(to top, #87ceeb, #f0f8ff);
+  color: #2c3e50;
+}
+
+.bg-night {
+  background: linear-gradient(to top, #2c3e50, #34495e);
+  color: #ecf0f1;
+}
+
+.bg-afternoon {
+  background: linear-gradient(to top, #ffcc33, #ff9933);
+  color: #2c3e50;
+}
+
+.bg-evening {
+  background: linear-gradient(to top, #f39c12, #d35400);
+  color: #ecf0f1;
+}
+
+.forecast-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 10px 20px;
+  color: rgb(69, 68, 68);
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.forecast-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+#weather-container {
+  min-height: 550px;
+  width: 100%;
+  max-width: 600px;
+  transition: all 0.3s ease;
+}
+
+#live-timer {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #2c3e50;
+}
