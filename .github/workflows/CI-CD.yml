@@ -56,4 +56,4 @@ jobs:
           docker pull ${{ secrets.DOCKER_USERNAME }}/weather-app:latest
           docker stop weather-app || true
           docker rm weather-app || true
-          docker run -d -p 80:5000 --name weather-app ${{ secrets.DOCKER_USERNAME }}/weather-app:latest
+          docker run -d -p 80:5000 --name weather-app -e WEATHER_API_KEY="${{secrets.WEATHER_API_KEY}}" ${{ secrets.DOCKER_USERNAME }}/weather-app:latest 
