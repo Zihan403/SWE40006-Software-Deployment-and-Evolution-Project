@@ -1,0 +1,10 @@
+services:
+  weather-app:
+    image: zihansarowar/weather-app:latest
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+    restart: always
+    
