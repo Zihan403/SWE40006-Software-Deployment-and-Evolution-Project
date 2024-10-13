@@ -8,12 +8,12 @@
 
 .bg-night {
   background: linear-gradient(to top, #2c3e50, #34495e);
-  color: #ecf0f1;
+  color: #050505;
 }
 
 .bg-afternoon {
   background: linear-gradient(to top, #ffcc33, #ff9933);
-  color: #2c3e50;
+  color: #030303;
 }
 
 .bg-evening {

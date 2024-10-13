@@ -563,16 +563,20 @@ video {
   margin-bottom: 1rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .mt-6 {
   margin-top: 1.5rem;
 }
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
 }
 
 .inline-block {
@@ -597,6 +601,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.max-h-40 {
+  max-height: 10rem;
 }
 
 .min-h-screen {
@@ -647,8 +655,22 @@ video {
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.overflow-auto {
+  overflow: auto;
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-l-lg {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.rounded-r-lg {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .border {
@@ -672,8 +694,9 @@ video {
   background-color: rgb(191 219 254 / var(--tw-bg-opacity));
 }
 
-.bg-white\/20 {
-  background-color: rgb(255 255 255 / 0.2);
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
 .bg-red-500 {
@@ -681,8 +704,25 @@ video {
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-white\/20 {
+  background-color: rgb(255 255 255 / 0.2);
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
 .p-8 {
   padding: 2rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .text-center {
@@ -739,13 +779,18 @@ video {
   letter-spacing: 0.025em;
 }
 
-.text-white\/80 {
-  color: rgb(255 255 255 / 0.8);
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-white\/80 {
+  color: rgb(255 255 255 / 0.8);
 }
 
 .underline {
@@ -771,12 +816,12 @@ video {
 
 .bg-night {
   background: linear-gradient(to top, #2c3e50, #34495e);
-  color: #ecf0f1;
+  color: #050505;
 }
 
 .bg-afternoon {
   background: linear-gradient(to top, #ffcc33, #ff9933);
-  color: #2c3e50;
+  color: #030303;
 }
 
 .bg-evening {
