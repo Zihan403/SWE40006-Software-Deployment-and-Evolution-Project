@@ -75,7 +75,7 @@ describe("Weather Service", () => {
     axios.get.mockResolvedValue({});
 
     await expect(
-      weatherService.fetchWeatherData(undefined, undefined)
+      weatherService.fetchWeatherDataForCity(undefined, undefined)
     ).rejects.toThrow("Error fetching weather data");
   });
 

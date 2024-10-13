@@ -14,48 +14,87 @@
       class="flex flex-col items-center justify-center bg-white/20 backdrop-blur-md p-8 rounded-lg shadow-lg text-center w-full max-w-lg border border-white/30"
     >
       <h1 class="text-4xl font-bold mb-4 tracking-wide" id="location">
-        Loading...
+        <%= weather.location %>, <%= weather.country %>
       </h1>
+      <span id="is-day" hidden="true" class="text-sm font-semibold"
+        ><%= weather.is_day %></span
+      >
 
-      <div id="live-timer" class="text-xl font-semibold mb-4">
-        Loading time...
-      </div>
-
-      <div class="flex items-center justify-center space-x-4">
-        <img
-          id="weather-icon"
-          src=""
-          alt="Weather Icon"
-          class="w-20 h-20 hidden"
+      <!-- Search Bar -->
+      <form id="search-form" class="flex items-center justify-center mb-4">
+        <input
+          type="text"
+          id="city-input"
+          placeholder="Enter city name"
+          class="p-2 rounded-l-lg border text-black"
+          autocomplete="off"
         />
-        <p id="condition" class="text-2xl font-semibold">--</p>
-      </div>
+        <button type="submit" class="p-2 bg-blue-500 text-white rounded-r-lg">
+          Search
+        </button>
+      </form>
 
-      <p id="temperature" class="text-6xl font-extrabold mt-6 mb-4">--Â°C</p>
+      <!-- Suggestions for matching cities -->
+      <ul
+        id="suggestions-list"
+        class="w-full bg-white text-left mt-2 rounded-lg shadow-lg max-h-40 overflow-auto"
+      ></ul>
 
-      <div class="border-t border-white/20 my-6"></div>
-
-      <div class="flex justify-between text-lg w-full">
-        <div class="flex items-center space-x-2">
-          <img src="/images/wind-solid.svg" alt="Wind Icon" class="w-8 h-8" />
-          <p>Wind: <span id="wind" class="font-semibold">--</span> kph</p>
+      <!-- Weather details will be shown here -->
+      <div id="weather-info">
+        <div id="live-timer" class="text-xl font-semibold mb-4">
+          Loading Time....
         </div>
-        <div class="flex items-center space-x-2">
+        <span id="local-time" hidden><%= weather.localTime %></span>
+
+        <div class="flex items-center justify-center space-x-4">
           <img
-            src="/images/water-solid.svg"
-            alt="Humidity Icon"
-            class="w-8 h-8"
+            id="weather-icon"
+            src="<%= weather.icon %>"
+            alt="Weather
+          Icon"
+            class="w-20 h-20"
           />
-          <p>Humidity: <span id="humidity" class="font-semibold">--</span>%</p>
+          <p id="condition" class="text-2xl font-semibold">
+            <%= weather.condition %>
+          </p>
         </div>
-      </div>
 
-      <p class="text-lg mt-6">
-        UV Index: <span id="uv" class="font-semibold">--</span>
-      </p>
+        <p id="temperature" class="text-6xl font-extrabold mt-6 mb-4">
+          <%= weather.temperature %>°C
+        </p>
 
-      <div class="forecast-btn">
-        <a href="#">View Weather Forecasts</a>
+        <div class="border-t border-white/20 my-6"></div>
+
+        <div class="flex justify-between text-lg w-full">
+          <div class="flex items-center space-x-2">
+            <img src="/images/wind-solid.svg" alt="Wind Icon" class="w-8 h-8" />
+            <p>
+              Wind:
+              <span id="wind" class="font-semibold"
+                ><%= weather.wind_speed_kph %></span
+              >
+              kph
+            </p>
+          </div>
+          <div class="flex items-center space-x-2">
+            <img
+              src="/images/water-solid.svg"
+              alt="Humidity Icon"
+              class="w-8 h-8"
+            />
+            <p>
+              Humidity:
+              <span id="humidity" class="font-semibold"
+                ><%= weather.humidity %></span
+              >%
+            </p>
+          </div>
+        </div>
+
+        <p class="text-lg mt-6">
+          UV Index: <span id="uv" class="font-semibold"><%= weather.uv %></span>
+        </p>
       </div>
 
       <p class="mt-8 text-sm font-light text-white/80">
@@ -63,6 +102,7 @@
         <a href="https://www.weatherapi.com/" class="underline">WeatherAPI</a>
       </p>
     </div>
+
     <script type="text/javascript" src="/scripts/script.js"></script>
   </body>
 </html>
