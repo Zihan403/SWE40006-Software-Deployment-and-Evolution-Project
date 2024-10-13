@@ -1,6 +1,7 @@
 const axios = require("axios");
 const CurrentWeather = require("../models/currentweather.model");
 
+// Fetch weather by city name
 const fetchWeatherDataForCity = async (city) => {
   const apiKey = process.env.WEATHER_API_KEY;
   const apiUrl = `https://api.weatherapi.com/v1/current.json?q=${city}&key=${apiKey}`;
@@ -9,6 +10,7 @@ const fetchWeatherDataForCity = async (city) => {
     const response = await axios.get(apiUrl);
     const data = response.data;
 
+    // Return an instance of the CurrentWeather model
     // Return an instance of the CurrentWeather model
     return new CurrentWeather(
       data.location.name,
