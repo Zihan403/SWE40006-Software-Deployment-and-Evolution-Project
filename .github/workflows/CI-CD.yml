@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  # Build and Test Job
+  # Build and Test Job (runs on every push)
   build:
     runs-on: ubuntu-latest
 
