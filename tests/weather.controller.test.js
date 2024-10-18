@@ -9,7 +9,7 @@ describe("Weather Service", () => {
     const mockApiResponse = {
       location: {
         name: "London",
-        country: "United Kingdom",
+        
       },
       current: {
         temp_c: 15,
