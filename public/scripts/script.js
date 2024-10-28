@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Set up an interval to update the time every second AFTER currentTime is initialized
   setInterval(() => {
-    updateTime(); // Call updateTime each second 
+    updateTime(); // Call updateTime each second  
   }, 1000);
 });
 
