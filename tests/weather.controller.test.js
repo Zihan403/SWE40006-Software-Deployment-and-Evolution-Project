@@ -3,13 +3,14 @@ const weatherService = require("../services/weather.service");
 
 jest.mock("axios");
 
+// making an error 
 describe("Weather Service", () => {
   it("should fetch weather data for a given city", async () => {
     const city = "London";
     const mockApiResponse = {
       location: {
         name: "London",
-        country: "United Kingdom",
+        
       },
       current: {
         temp_c: 15,
